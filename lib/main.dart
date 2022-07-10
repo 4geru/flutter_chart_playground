@@ -1,4 +1,4 @@
-import 'package:chart_play_ground/line_chart/home.dart';
+import 'package:chart_play_ground/timeline_chart/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
