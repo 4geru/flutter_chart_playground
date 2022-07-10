@@ -15,7 +15,14 @@ class SubscriberChart extends StatelessWidget {
         domainFn: (SubscriberSeries series, _) => series.year,
         measureFn: (SubscriberSeries series, _) => series.subscribers,
         colorFn: (SubscriberSeries series, _) => series.barColor,
-      )
+      ),
+      charts.Series(
+        id: 'Subscriberss',
+        data: data,
+        domainFn: (SubscriberSeries series, _) => series.year,
+        measureFn: (SubscriberSeries series, _) => series.subscribers + 100000,
+        colorFn: (SubscriberSeries series, _) => series.barColor,
+      ),
     ];
     return Container(
         height: 400,
