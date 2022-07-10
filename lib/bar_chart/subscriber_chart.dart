@@ -31,6 +31,14 @@ class SubscriberChart extends StatelessWidget {
                 child: charts.BarChart(
               series,
               animate: false,
+              vertical: true,
+            )),
+            Expanded(child: charts.PieChart(series, animate: false)),
+            Expanded(
+                child: charts.BarChart(
+              series,
+              animate: false,
+              vertical: false,
             ))
           ],
         )));
