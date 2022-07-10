@@ -1,4 +1,4 @@
-import 'package:chart_play_ground/bar_chart/subscriber_series.dart';
+import 'package:chart_play_ground/line_chart/subscriber_series.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
@@ -8,13 +8,12 @@ class SubscriberChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<charts.Series<SubscriberSeries, String>> series = [
+    List<charts.Series<SubscriberSeries, num>> series = [
       charts.Series(
-        id: 'Subscribers',
+        id: 'Sales',
         data: data,
         domainFn: (SubscriberSeries series, _) => series.year,
-        measureFn: (SubscriberSeries series, _) => series.subscribers,
-        colorFn: (SubscriberSeries series, _) => series.barColor,
+        measureFn: (SubscriberSeries series, _) => series.sales,
       )
     ];
     return Container(
@@ -28,21 +27,10 @@ class SubscriberChart extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText2,
             ),
             Expanded(
-                child: charts.BarChart(
+                child: charts.LineChart(
               series,
               animate: false,
-              vertical: true,
             )),
-            Container(
-              height: 200,
-              child: Expanded(child: charts.PieChart(series, animate: false)),
-            ),
-            Expanded(
-                child: charts.BarChart(
-              series,
-              animate: false,
-              vertical: false,
-            ))
           ],
         )));
     // return charts.BarChart();
