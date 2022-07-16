@@ -12,12 +12,16 @@ class SubscriberChart extends StatelessWidget {
       charts.Series(
         id: 'Sales',
         data: data,
+        colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
         domainFn: (SubscriberSeries series, _) => series.year,
         measureFn: (SubscriberSeries series, _) => series.sales,
       ),
       charts.Series(
         id: 'Sales',
         data: data,
+        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+        areaColorFn: (_, __) =>
+            charts.MaterialPalette.green.shadeDefault.lighter,
         domainFn: (SubscriberSeries series, _) => series.year,
         measureFn: (SubscriberSeries series, _) => series.sales + 30,
       )
@@ -36,6 +40,8 @@ class SubscriberChart extends StatelessWidget {
                 child: charts.LineChart(
               series,
               animate: false,
+              defaultRenderer:
+                  charts.LineRendererConfig(includeArea: true, stacked: true),
             )),
           ],
         )));
