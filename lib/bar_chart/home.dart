@@ -8,15 +8,15 @@ class HomePage extends StatelessWidget {
 
   final List<SubscriberSeries> data = [
     SubscriberSeries(
-        year: '2008',
+        year: 2008,
         subscribers: 100000,
-        barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
+        barColor: charts.MaterialPalette.blue.shadeDefault),
     SubscriberSeries(
-        year: '2009',
+        year: 2009,
         subscribers: 110000,
         barColor: charts.ColorUtil.fromDartColor(Colors.blue)),
     SubscriberSeries(
-        year: '2012',
+        year: 2012,
         subscribers: 160000,
         barColor: charts.ColorUtil.fromDartColor(Colors.red)),
   ];

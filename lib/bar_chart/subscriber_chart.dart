@@ -12,46 +12,26 @@ class SubscriberChart extends StatelessWidget {
       charts.Series(
         id: 'Subscribers',
         data: data,
-        domainFn: (SubscriberSeries series, _) => series.year,
+        domainFn: (SubscriberSeries series, _) => series.year.toString(),
         measureFn: (SubscriberSeries series, _) => series.subscribers,
         colorFn: (SubscriberSeries series, _) => series.barColor,
       ),
-      charts.Series(
-        id: 'Subscriberss',
-        data: data,
-        domainFn: (SubscriberSeries series, _) => series.year,
-        measureFn: (SubscriberSeries series, _) => series.subscribers + 100000,
-        colorFn: (SubscriberSeries series, _) => series.barColor,
-      ),
     ];
-    return Container(
-        height: 400,
-        padding: EdgeInsets.all(20),
-        child: Card(
-            child: Column(
-          children: [
-            Text(
-              "hello this is world",
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            Expanded(
-                child: charts.BarChart(
-              series,
-              animate: false,
-              vertical: true,
-            )),
-            Container(
-              height: 200,
-              child: Expanded(child: charts.PieChart(series, animate: false)),
-            ),
-            Expanded(
-                child: charts.BarChart(
-              series,
-              animate: false,
-              vertical: false,
-            ))
-          ],
-        )));
-    // return charts.BarChart();
+    return Column(
+      children: [
+        Text("棒グラフ / 円グラフ"),
+        Expanded(
+            child: charts.BarChart(
+          series,
+          vertical: true,
+        )),
+        Expanded(
+            child: charts.BarChart(
+          series,
+          vertical: false,
+        )),
+        Expanded(child: charts.PieChart(series)),
+      ],
+    );
   }
 }

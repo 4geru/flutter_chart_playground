@@ -45,6 +45,5 @@ class SubscriberChart extends StatelessWidget {
             )),
           ],
         )));
-    // return charts.BarChart();
   }
 }
